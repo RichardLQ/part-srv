@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+option go_package = "./stub";
+import "google/api/annotations.proto";
+import "partime.proto";
+package stub;
+
+
+service UserService {
+  rpc GetHotPartTime (GetHotPartTimeReq) returns (GetPartTimeRsp){
+    option (google.api.http) = {
+      post: "/partime/hot",
+      body: "*"
+    };
+  }
+  rpc GetPartTime (GetPartTimeReq) returns (GetPartTimeRsp){
+    option (google.api.http) = {
+      post: "/partime/list",
+      body: "*"
+    };
+  }
+}
